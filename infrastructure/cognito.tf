@@ -23,14 +23,14 @@ resource "aws_cognito_user_pool_client" "main" {
   logout_urls                  = ["https://example.com"]
 }
 
-resource "aws_cognito_user" "refayat_haque" {
+resource "aws_cognito_user" "test_user_1" {
   user_pool_id = aws_cognito_user_pool.main.id
-  username     = "refayat-haque"
-  password     = "2iJevHaRKzp0UwIq"
+  username     = "test-user-1"
+  password     = var.TF_VAR_TEST_USER_1_PASSWORD
 }
 
-resource "aws_cognito_user" "abid_mansur" {
+resource "aws_cognito_user" "test_user_2" {
   user_pool_id = aws_cognito_user_pool.main.id
-  username     = "abid-mansur"
-  password     = "v3JoWuCGHlU79Vf0"
+  username     = "test-user-2"
+  password     = var.TF_VAR_TEST_USER_2_PASSWORD
 }
