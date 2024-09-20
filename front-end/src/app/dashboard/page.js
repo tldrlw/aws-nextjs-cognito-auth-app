@@ -31,7 +31,7 @@ export default function Dashboard() {
           <h2 className="text-cyan-700 text-lg">dashboard</h2>
           {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
           <Link href="/dashboard/admins">
-            <p text-cyan-600>go to admins page</p>
+            <p className="text-cyan-600">go to admins page</p>
           </Link>
           <form className="py-2" onSubmit={handleSubmit}>
             <button
