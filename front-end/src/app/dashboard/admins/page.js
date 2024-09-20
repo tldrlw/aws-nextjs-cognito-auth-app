@@ -28,11 +28,8 @@ export default function Dashboard() {
       </h1>
       <div className="p-2 md:py-2">
         <div className="w-full md:w-1/3">
-          <h2 className="text-cyan-700 text-lg">dashboard</h2>
+          <h2 className="text-cyan-700 text-lg">dashboard/admins</h2>
           {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
-          <Link href="/dashboard/admins">
-            <p text-cyan-600>go to admins page</p>
-          </Link>
           <form className="py-2" onSubmit={handleSubmit}>
             <button
               type="submit"

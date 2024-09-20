@@ -23,10 +23,25 @@ resource "aws_cognito_user_pool_client" "main" {
   logout_urls                  = ["https://example.com"]
 }
 
+resource "aws_cognito_user_group" "admins" {
+  name         = "Admins"
+  user_pool_id = aws_cognito_user_pool.main.id
+  # description  = "Managed by Terraform"
+  # precedence   = 42
+  # role_arn     = aws_iam_role.group_role.arn
+  # ^ these 3 are optional
+}
+
 resource "aws_cognito_user" "test_user_1" {
   user_pool_id = aws_cognito_user_pool.main.id
   username     = "test-user-1"
   password     = var.TF_VAR_TEST_USER_1_PASSWORD
+}
+
+resource "aws_cognito_user_in_group" "test_user_1_admins" {
+  user_pool_id = aws_cognito_user_pool.main.id
+  group_name   = aws_cognito_user_group.admins.name
+  username     = aws_cognito_user.test_user_1.username
 }
 
 resource "aws_cognito_user" "test_user_2" {

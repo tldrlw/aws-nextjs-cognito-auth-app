@@ -14,3 +14,7 @@ output "cognito-user-pool-client-secret" {
 output "cognito-user-pool-client-id" {
   value = aws_cognito_user_pool_client.main.id
 }
+
+output "aws-subnets-main-public" {
+  value = data.aws_subnets.main_public
+}
