@@ -1,17 +1,5 @@
-import localFont from "next/font/local";
 import "./globals.css";
-import ConfigureAmplifyClientSide from "./amplify-cognito-config";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import ConfigureAmplifyClientSide from "@/app/amplify-cognito-config";
 
 export const metadata = {
   title: "Create Next App",
@@ -21,12 +9,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="container mx-auto">
         <ConfigureAmplifyClientSide></ConfigureAmplifyClientSide>
+        {/* ^ running Amplify on the client-side */}
         {children}
       </body>
     </html>
   );
 }
+
+// tailwind container: https://tailwindcss.com/docs/container#using-the-container
